@@ -1,4 +1,4 @@
-# xLuCI2([中文](https://github.com/zhaojh329/xluci2/blob/master/README_ZH.md))
+# xLuCI2([中文](https://github.com/zhaojh329/xluci2/blob/master/README_ZH.md))([github](https://github.com/zhaojh329/xluci2))
 
 ![](https://img.shields.io/badge/license-GPLV3-brightgreen.svg?style=plastic "License")
 

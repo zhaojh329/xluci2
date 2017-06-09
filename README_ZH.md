@@ -1,4 +1,4 @@
-# xLuCI2
+# xLuCI2([github](https://github.com/zhaojh329/xluci2))
 
 ![](https://img.shields.io/badge/license-GPLV3-brightgreen.svg?style=plastic "License")
 
