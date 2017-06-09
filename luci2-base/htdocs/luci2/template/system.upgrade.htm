@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs">
+	<li class="active"><a data-toggle="tab" href="#actions"><%:Actions%></a></li>
+	<li><a data-toggle="tab" href="#config"><%:Configuration%></a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="actions">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%:Backup / Restore%></h3>
+			</div>
+			<div class="panel-body">
+				<p><%:Click "Generate archive" to download a tar archive of the current configuration files. To reset the firmware to its initial state, click "Perform reset" (only possible with squashfs images).%></p>
+				<p>
+					<form action="/cgi-bin/luci-backup" method="post" style="display:inline">
+						<input type="hidden" name="sessionid" />
+						<input class="btn btn-primary" type="button" id="btn_backup" value="<%:Generate archive%>" />
+					</form>
+					<input class="btn btn-danger" type="button" id="btn_reset" value="<%:Perform reset%>" />
+				</p>
+
+				<p><%:To restore configuration files, you can upload a previously generated backup archive here.%></p>
+				<p>
+					<input class="btn btn-primary" type="button" id="btn_restore" value="<%:Upload archive...%>" />
+				</p>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><%:Flash new firmware image%></h3>
+			</div>
+			<div class="panel-body">
+				<p><%:Upload a sysupgrade-compatible image here to replace the running firmware. Check "Keep settings" to retain the current configuration (requires an OpenWrt compatible firmware image).%></p>
+				<p>
+					<input class="btn btn-primary" type="button" id="btn_flash" value="<%:Flash image...%>" />
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="config">
+		<div class="panel">
+			<textarea class="form-control"></textarea>
+		</div>
+		<div class="pull-right">
+			<input class="btn btn-primary" type="button" id="btn_save" value="<%:Save%>" />
+			<input class="btn btn-default" type="button" id="btn_list" value="<%:Show current backup file list …%>" />
+		</div>
+	</div>
+</div>

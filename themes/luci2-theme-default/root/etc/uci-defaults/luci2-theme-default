@@ -1,0 +1,10 @@
+uci set luci2.themes.default='Default'
+
+theme=$(uci -q get luci2.main.theme)
+if [ -n "$theme" ];then
+	theme=$(uci -q get luci2.themes.$theme)
+fi
+
+[ -z "$theme" ] && uci set luci2.main.theme='default'
+
+uci commit luci2

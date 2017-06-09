@@ -1,0 +1,71 @@
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#status" data-toggle="tab"><%:Packages%></a></li>
+	<li><a href="#config" data-toggle="tab"><%:Configuration%></a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="status">
+		<div class="form-horizontal">
+			<div class="form-group">
+				<label class="col-lg-2 control-label"><%:Used space%></label>
+				<div class="col-lg-5">
+					<div id="package_space" class="form-control-static"></div>
+				</div>
+				<div class="col-lg-5"></div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label"><%:Update package lists%></label>
+				<div class="col-lg-5">
+					<button id="package_update" type="button" class="btn btn-default"><%:Start update …%></button>
+				</div>
+				<div class="col-lg-5"></div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label"><%:Install package directly%></label>
+				<div class="col-lg-5">
+					<div class="input-group">
+						<input id="package_url" type="text" class="form-control" placeholder="<%:Enter URL or name …%>" />
+						<span class="input-group-btn">
+							<button id="package_install" type="button" class="btn btn-info">»</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-lg-5"></div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label"><%:Filter packages%></label>
+				<div class="col-lg-5">
+					<div class="input-group">
+						<input id="package_filter" type="text" class="form-control" placeholder="<%:Filter packages …%>" />
+						<span class="input-group-btn">
+							<button" type="button" class="btn btn-default">×</button>
+						</span>
+					</div>
+					<label><input type="checkbox" id="package_which" style="vertical-align: middle; margin-top: 0" /> <%:Display only installed packages%></label>
+				</div>
+				<div class="col-lg-5"></div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="btn-group">
+					<button id="package_prev" type="button" class="btn btn-default">« 0 - 0</button>
+					<button id="package_next" type="button" class="btn btn-default">0 - 0 »</button>
+				</div>
+			</div>
+
+			<div class="panel-body" id="package_table"></div>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="config">
+		<div class="panel panel-default">
+			<textarea class="form-control"></textarea>
+		</div>
+		<div class="text-right">
+			<button class="btn btn-primary" type="button"><%:Save%></button>
+		</div>
+	</div>
+
+</div>

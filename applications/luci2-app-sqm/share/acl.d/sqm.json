@@ -1,0 +1,21 @@
+{
+	"sqm": {
+		"description": "Smart Queue Management",
+		"read": {
+			"uci": [
+				"sqm"
+			],
+			"ubus": {
+				"file": [
+					"list",
+					"read"
+				]
+			}
+		},
+		"write": {
+			"uci": [
+				"sqm"
+			]
+		}
+	}
+}

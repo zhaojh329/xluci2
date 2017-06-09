@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>LuCI2</title>
+
+        <link rel="stylesheet" href="/luci2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/luci2/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="/luci2/css/luci2.css">
+
+		<script type="text/javascript" src="/luci2/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="/luci2/placeholders.jquery.min.js"></script>
+		
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="/luci2/html5shiv.min.js"></script>
+          	<script type="text/javascript" src="/luci2/respond.min.js"></script>
+        <![endif]-->
+        
+        <script type="text/javascript" src="/luci2/jquery.peity.min.js"></script>
+        <script type="text/javascript" src="/luci2/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/luci2/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="/luci2/bootstrap-datetimepicker.zh-cn.js"></script>
+        <script type="text/javascript" src="/luci2/luci2.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+        <script type="text/javascript">
+            $(function() {
+                var L = new LuCI2();
+				L.i18n.init().then(function(){
+					L.ui.loadTheme().then(function() {
+						L.ui.login().then(function() {
+							L.ui.load();
+						});
+					});
+				});
+            });
+        </script>
+    </head>
+    <body></body>
+</html>

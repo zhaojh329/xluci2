@@ -1,0 +1,10 @@
+#!/bin/sh
+
+uci -q get sqm.eth1
+[ $? -eq 1 ] && exit 0
+
+sed "s/config queue 'eth1'/config queue/" /etc/config/sqm  > /tmp/sqm.config
+mv /tmp/sqm.config /etc/config/sqm
+
+sed "s/'eth1'/'eth0'/" /etc/config/sqm > /tmp/sqm.config
+mv /tmp/sqm.config /etc/config/sqm

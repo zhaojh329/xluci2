@@ -1,0 +1,20 @@
+<p><%:Select the utility to run and click%>"<%:Test%>"<%:to perform the requested operation.%></p>
+<p>
+	<table style="width:auto">
+		<tr>
+			<td>
+				<input type="text" id="host" value="openwrt.org" class="form-control" />
+			</td>
+			<td>
+				<div class="input-group">
+					<select id="tool" class="form-control"></select>
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-primary" id="run"><%:Test%></button>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</p>
+
+<pre id="output" style="display:none"></pre>

@@ -1,0 +1,9 @@
+{
+    "network/sqm": {
+        "title": "SQM QoS",
+        "acls": [ "sqm" ],
+        "files": [ "/etc/config/sqm" ],
+        "view": "network/sqm",
+        "index": 11
+    }
+}

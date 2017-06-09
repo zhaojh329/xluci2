@@ -1,0 +1,5 @@
+{
+	"SQM QoS":"智能流量管理",
+	"Smart Queue Management":"智能流量管理",
+	"With SQM you can enable traffic shaping, better mixing (Fair Queueing), active queue length management (AQM) and prioritisation on one network interface.":"SQM可以在一个网络接口上进行流量整形，更好的混合（公平排队），主动队列管理（AQM）和优先级。"
+}

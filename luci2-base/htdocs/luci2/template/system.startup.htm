@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#rclocal" data-toggle="tab"><%:Local Startup%></a></li>
+	<li><a href="#initscripts" data-toggle="tab"><%:Initscripts%></a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="rclocal">
+		<p><%:This is the content of /etc/rc.local. Insert your own commands here (in front of 'exit 0') to execute them at the end of the boot process.%></p>
+		<div class="panel panel-default">
+			<textarea id="rc_local" class="form-control" style="width:100%" rows="10"></textarea>
+		</div>
+		<div class="text-right">
+			<button type="button" class="btn btn-primary"><%:Save%></button>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="initscripts">
+		<p><%:You can enable or disable installed init scripts here. Changes will applied after a device reboot. Warning: If you disable essential init scripts like "network", your device might become inaccessible!%></p>
+		<div id="init_table"></div>
+	</div>
+</div>
