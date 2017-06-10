@@ -7,10 +7,16 @@ Class.extend({
 		L.uci.load('wireless').then(function() {
 			var cnt = L.uci.sections('wireless', 'wifi-device').length;
 			L.uci.sections('wireless', 'wifi-device', function(s, sid) {
-				$.when(self.getFreqList(sid),
-					self.getTxpowerList(sid),
-					self.getCountryList(sid),
-					self.getDeviceStatus(sid)
+				var radio = sid;
+				if (sid == 'mt7620' || sid == 'mt7628')
+					radio = 'ra0';
+				else if (sid == 'mt7612e')
+					radio = 'rai0';
+				
+				$.when(self.getFreqList(radio),
+					self.getTxpowerList(radio),
+					self.getCountryList(radio),
+					self.getDeviceStatus(radio)
 					).then(function(freqlist, txpwrlist, countrylist, info) {
 						cnt--;
 						var hwmodes = info.hwmodes;
