@@ -14,7 +14,7 @@ L.ui.view.extend({
 
 			s.tab({                                             
 				id:			'general',                    
-				caption:	L.tr('General Settings')      
+				caption:	L.tr('General Settings')
 			});
 
 			(s.taboption('general', L.cbi.DummyValue, '__name', {
@@ -28,23 +28,37 @@ L.ui.view.extend({
 				caption:	L.tr('Disabled')
 			});
 
-			s.taboption('general', L.cbi.WlanFreqValue, '_mode_freq', {
-				caption:	L.tr('Operating frequency')
+			var ch = s.taboption('general', L.cbi.ListValue, 'channel', {
+				caption:	L.tr('Channel')
 			});
 
-			var tp = s.taboption('general', L.cbi.ListValue, 'txpower', {
-				caption:	L.tr('Transmit Power')
-			});
-
-			tp.load = function(sid) {
-				this.choices = [ ];
-				var txpwrlist = L.wireless.txpwrlist[sid];
-				for (var i = 0; i < txpwrlist.length; i++)
-					this.value('' + txpwrlist[i].dbm, txpwrlist[i].dbm + ' dBm (' + txpwrlist[i].mw + ' mW)');
+			ch.ucivalue = function(sid) {
+				var v = this.callSuper('ucivalue', sid);
+				if (v == '0')
+					v = 'auto'
+				return v;
 			};
 
-			tp.ucivalue = function(sid) {
-				return this.callSuper('ucivalue', sid) || this.choices[this.choices.length - 1][0];
+			ch.load = function(sid) {
+				var modes = L.wireless.modes[sid];
+				this.choices = [];
+				for (var i = 0; i < modes.length; i += 2) {
+					if (modes[i + 1]) {
+						var channels = L.wireless.channels[sid][modes[i]];
+						for (var j = 0; j < channels.length; j += 3) {
+							if (channels[j + 2])
+								this.value(channels[j], channels[j + 1]);
+						}
+					}
+				}
+			};
+
+			ch.save = function(sid) {
+				var v = this.formvalue(sid);
+				if (v == 'auto' && (sid == 'mt7620' || sid == 'mt7628' || sid == 'mt7612e'))
+					v = '0';
+
+				this.ownerMap.set('wireless', sid, 'channel', v);
 			};
 
 			s.tab({                                             
@@ -73,12 +87,6 @@ L.ui.view.extend({
 
 				return v;
 			};
-
-			s.taboption("advanced", L.cbi.InputValue, "distance", {
-				caption:	L.tr('Distance Optimization'),
-				description: L.tr('Distance to farthest network member in meters.'),
-				optional:	true
-			});
 			
 			var s_1 = s.subsection(L.cbi.TypedSection, 'wifi-iface', {
 				caption:        L.tr('Device interfaces'),
