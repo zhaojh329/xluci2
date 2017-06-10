@@ -27,7 +27,7 @@ define Package/$(PKG_NAME)
   SECTION:=luci2
   CATEGORY:=LuCI2
   TITLE:=LuCI2 UI modified by zjh
-  DEPENDS:=+rpcd +rpcd-mod-file +uhttpd +uhttpd-mod-ubus +libubox +libubus +lua-cjson +libubus-lua +libubox-lua
+  DEPENDS:=+rpcd +rpcd-mod-file +rpcd-mod-iwinfo +uhttpd +uhttpd-mod-ubus +libubox +libubus +lua-cjson +libubus-lua +libubox-lua
 endef
 
 define Package/$(PKG_NAME)/description
