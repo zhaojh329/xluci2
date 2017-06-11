@@ -329,36 +329,28 @@ L.ui.view.extend({
 						format:  function(v, n) {
 							return new L.ui.devicebadge(assoclist[n]).render();
 						},
-						width:    2,
-						width_sm: 2,
 						align:    'right',
 						key:      'signal'
 					}, {
-						width_sm: 4,
 						caption:  L.tr('MAC-Address'),
-						key:      'mac'
+						key:      'mac',
+						width:	  2
 					}, {
 						caption:  L.tr('Signal'),
 						format:   '%d ' + L.tr('dBm') + '',
 						key:      'signal',
-						width:    1,
-						width_sm: 0
 					}, {
 						caption:  L.tr('Noise'),
 						format:   '%d ' + L.tr('dBm') + '',
-						key:      'noise',
-						width:    1,
-						width_sm: 0
+						key:      'noise'
 					}, {
 						caption:  L.tr('RX Rate'),
 						format:   formatRate,
-						key:      'rx',
-						width:    3
+						key:      'rx'
 					}, {
 						caption:  L.tr('TX Rate'),
 						format:   formatRate,
-						key:      'tx',
-						width:    3
+						key:      'tx'
 					} ]
 				});
 
