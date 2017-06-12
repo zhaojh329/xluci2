@@ -1171,30 +1171,8 @@ rpc_luci2_reset_test(struct ubus_context *ctx, struct ubus_object *obj,
                      struct ubus_request_data *req, const char *method,
                      struct blob_attr *msg)
 {
-	FILE *mtd;
-	struct stat s;
-	char line[64] = { 0 };
-	bool supported = false;
-
-	if (!stat("/sbin/mtd", &s) && (s.st_mode & S_IXUSR))
-	{
-		if ((mtd = fopen("/proc/mtd", "r")) != NULL)
-		{
-			while (fgets(line, sizeof(line) - 1, mtd))
-			{
-				if (strstr(line, "\"rootfs_data\""))
-				{
-					supported = true;
-					break;
-				}
-			}
-
-			fclose(mtd);
-		}
-	}
-
 	blob_buf_init(&buf, 0);
-	blobmsg_add_u8(&buf, "supported", supported);
+	blobmsg_add_u8(&buf, "supported", true);
 
 	ubus_send_reply(ctx, req, buf.head);
 
@@ -1222,7 +1200,7 @@ rpc_luci2_reset_start(struct ubus_context *ctx, struct ubus_object *obj,
 
 		sleep(1);
 
-		execl("/sbin/mtd", "/sbin/mtd", "-r", "erase", "rootfs_data", NULL);
+		execl("/sbin/jffs2reset", "/sbin/jffs2reset", "-y", "-r", NULL);
 
 		return rpc_errno_status();
 
