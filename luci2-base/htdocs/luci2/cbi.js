@@ -3097,8 +3097,6 @@
 					.addClass('btn-group')
 					.append(L.ui.button(L.tr('Save & Apply'), 'primary')
 						.click(evdata, this.handleApply))
-					.append(L.ui.button(L.tr('Save'), 'default')
-						.click(evdata, this.handleSave))
 					.append(L.ui.button(L.tr('Reset'), 'default')
 						.click(evdata, this.handleReset)));
 		},
@@ -3318,8 +3316,6 @@
 				.addClass('btn-group')
 				.append(L.ui.button(L.tr('Save & Apply'), 'primary')
 					.click(evdata, this.handleApply))
-				.append(L.ui.button(L.tr('Save'), 'default')
-					.click(evdata, this.handleSave))
 				.append(L.ui.button(L.tr('Cancel'), 'default')
 					.click(evdata, this.handleReset));
 		},
