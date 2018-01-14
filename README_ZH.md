@@ -1,3 +1,5 @@
+# 已废弃。请使用[vuci](https://github.com/zhaojh329/vuci)
+
 # xLuCI2([github](https://github.com/zhaojh329/xluci2))
 
 ![](https://img.shields.io/badge/license-GPLV3-brightgreen.svg?style=plastic "License")
