@@ -1,4 +1,4 @@
-# 已废弃。请使用[vuci](https://github.com/zhaojh329/vuci)
+# 已废弃。请使用[oui](https://github.com/zhaojh329/oui)
 
 # xLuCI2([github](https://github.com/zhaojh329/xluci2))
 
