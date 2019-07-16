@@ -1,4 +1,4 @@
-# DEPRECATED. use [vuci](https://github.com/zhaojh329/vuci)
+# DEPRECATED. use [oui](https://github.com/zhaojh329/oui)
 
 # xLuCI2([中文](https://github.com/zhaojh329/xluci2/blob/master/README_ZH.md))([github](https://github.com/zhaojh329/xluci2))
 
